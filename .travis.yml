@@ -1,0 +1,13 @@
+language: android
+components:
+    - build-tools-26.0.2
+    - android-27
+before_cache:
+  - rm -f  $HOME/.gradle/caches/*
+cache:
+  directories:
+    - $HOME/.gradle/caches/
+    - $HOME/.gradle/wrapper/
+    - $HOME/.android/build-cache
+script:
+    - chmod +x ./gradlew
