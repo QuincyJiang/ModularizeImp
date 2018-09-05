@@ -7,9 +7,10 @@ env:
  global:
     - ANDROID_API=27
     - ANDROID_BUILD_TOOLS=27.0.3
-    - echo yes | sdkmanager "build-tools;27.0.3"
-    - echo yes | sdkmanager "platforms;android-27"
+
 components:
+      - echo yes | sdkmanager "build-tools;27.0.3"
+      - echo yes | sdkmanager "platforms;android-27"
       - tools
       - tools # Running this twice get's the latest build tools
       - platform-tools
