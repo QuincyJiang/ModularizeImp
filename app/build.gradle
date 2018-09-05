@@ -1,4 +1,5 @@
 apply plugin: 'com.android.application'
+def packer = rootProject.ext.android
 
 android {
     compileSdkVersion 27
@@ -6,8 +7,9 @@ android {
         applicationId "com.dida.kuaila"
         minSdkVersion 14
         targetSdkVersion 27
-        versionCode 1
-        versionName "1.0"
+        versionCode packer.versionCode
+        versionName packer.versionName
+        flavorDimensions "versionCode"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
@@ -16,7 +18,30 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    productFlavors {
+        Kuan {
+        }
+        Wandoujia {
+        }
+        play {
+
+        }
+    }
+    dataBinding {
+        enabled true
+    }
+    android.applicationVariants.all{ variant ->
+        variant.outputs.all {output ->
+            def outputFile = output.outputFile
+            if(outputFile !=null && outputFile.name.endsWith('.apk')){
+                def fileName = "ipdmthj-${variant.productFlavors[0].name}-${variant.buildType.getName()}-${packer.versionName}-${packer.buildTime}.apk"
+                outputFileName = fileName
+                variant.packageApplication.outputDirectory = new File(project.rootDir.absolutePath+"/apks")
+            }
+        }
+    }
 }
+
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
