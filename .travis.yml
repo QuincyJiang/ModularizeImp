@@ -10,4 +10,5 @@ cache:
     - $HOME/.gradle/wrapper/
     - $HOME/.android/build-cache
 script:
-    - chmod +x ./gradlew
+    - "chmod +x ./gradlew"
+    - "./gradlew assembleRelease"
