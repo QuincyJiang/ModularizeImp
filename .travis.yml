@@ -30,6 +30,7 @@ deploy:
     secure: eflz/al5gz+v064Oa2c5upPEpDtGJjJdWgxVjZYqcm5ln2GJVAISIq722ueXjY32UARw/I89HYmQbEmHuxRtBnSp7NtbMmJdMVNFsLYDCvpZhu19wCn/cn4EdNhkJU6dAHgEL9WeipZ2QZZsoFmYfnCBQtQ0QEU0uHrQ1RWH/N6kVHg4rMRsPd2fD10oFkGjmGqoWqHKCM5KecjBqUMKNoizv2C6xPs6ySnvakzwRW88/Y4PNT3PUMexZaDA4wu0lUEuUwkHKaztSXHu4V1DC/GyKAZ/m5V89Y7of3yKrTeLGlclt/3iqvhK/4PY2e+UMVoDFrrM5r3bSgb+ocxJTem5LEDmYUTUxhzYVYzD/P7wd5kF1dhqbMf79ROSvNZk4VD1ufOWaJIeNEa+pJxBfuMHuDVu9DkJd9/Jpo0k+Eg8eeLytOECeetCaq0CthGZl4vURl0z974Bpy/c/tDqLDjPQTPliiCagQVEmFTs0sH1uTk0mEpb0lxAWtD6QCWucYgDdI8IA10XhfRrCtqWxZgilCyD1Eu3CoyY40s+lbit2QSVShAYNlC5X7Ccx3FhnUvmVlE+nbdOgcemL0vzXzjkaBt8mnBf07PqbvHeij38ecK9qYARxIOHZELNwzBoP9TYi3Xb1QUtKJ8J2Y32qZTp4wMO+2w5J5QHfVFOIF8=
   file_glob: true
   file: apks/*
+  skip_cleanup: true
   on:
     tags: true
     repo: QuincyJiang/kuaila
