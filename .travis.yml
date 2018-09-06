@@ -1,29 +1,36 @@
 sudo: required
 language: android
 before_cache:
-  - rm -f  $HOME/.gradle/caches/*
+- rm -f  $HOME/.gradle/caches/*
 cache:
   directories:
-    - $HOME/.gradle/caches/
-    - $HOME/.gradle/wrapper/
-    - $HOME/.android/build-cache
+  - "$HOME/.gradle/caches/"
+  - "$HOME/.gradle/wrapper/"
+  - "$HOME/.android/build-cache"
 android:
   components:
-        - tools
-        - tools # Running this twice get's the latest build tools
-        - platform-tools
-        - android-27
-        - build-tools-27.0.3
-        - extra
+  - tools
+  - tools
+  - platform-tools
+  - android-27
+  - build-tools-27.0.3
+  - extra
 licenses:
-  - 'android-sdk-license-.+'
+- android-sdk-license-.+
 before_install:
-  - gem install fir-cli
-  - yes | sdkmanager "platforms;android-27"
-  - yes | sdkmanager "build-tools;27.0.3"
+- gem install fir-cli
+- yes | sdkmanager "platforms;android-27"
+- yes | sdkmanager "build-tools;27.0.3"
 script:
-    - "chmod +x ./gradlew"
-    - "./gradlew assembleRelease"
-
+- chmod +x ./gradlew
+- "./gradlew assembleRelease"
+deploy:
+  provider: releases
+  api_key:
+    secure: eflz/al5gz+v064Oa2c5upPEpDtGJjJdWgxVjZYqcm5ln2GJVAISIq722ueXjY32UARw/I89HYmQbEmHuxRtBnSp7NtbMmJdMVNFsLYDCvpZhu19wCn/cn4EdNhkJU6dAHgEL9WeipZ2QZZsoFmYfnCBQtQ0QEU0uHrQ1RWH/N6kVHg4rMRsPd2fD10oFkGjmGqoWqHKCM5KecjBqUMKNoizv2C6xPs6ySnvakzwRW88/Y4PNT3PUMexZaDA4wu0lUEuUwkHKaztSXHu4V1DC/GyKAZ/m5V89Y7of3yKrTeLGlclt/3iqvhK/4PY2e+UMVoDFrrM5r3bSgb+ocxJTem5LEDmYUTUxhzYVYzD/P7wd5kF1dhqbMf79ROSvNZk4VD1ufOWaJIeNEa+pJxBfuMHuDVu9DkJd9/Jpo0k+Eg8eeLytOECeetCaq0CthGZl4vURl0z974Bpy/c/tDqLDjPQTPliiCagQVEmFTs0sH1uTk0mEpb0lxAWtD6QCWucYgDdI8IA10XhfRrCtqWxZgilCyD1Eu3CoyY40s+lbit2QSVShAYNlC5X7Ccx3FhnUvmVlE+nbdOgcemL0vzXzjkaBt8mnBf07PqbvHeij38ecK9qYARxIOHZELNwzBoP9TYi3Xb1QUtKJ8J2Y32qZTp4wMO+2w5J5QHfVFOIF8=
+  file_glob: true
+  file: apks/*
+  on:
+    repo: QuincyJiang/kuaila
 after_deploy:
-    - fir p apks/*.apk -T $FIR_TOKEN -c "`git cat-file tag $TRAVIS_TAG`"
+- fir p apks/*.apk -T $FIR_TOKEN -c "`git cat-file tag $TRAVIS_TAG`"
