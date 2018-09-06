@@ -31,6 +31,7 @@ deploy:
   file_glob: true
   file: apks/*
   on:
+    tags: true
     repo: QuincyJiang/kuaila
 after_deploy:
 - fir p apks/*.apk -T $FIR_TOKEN -c "`git cat-file tag $TRAVIS_TAG`"
