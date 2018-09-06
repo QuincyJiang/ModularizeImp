@@ -68,3 +68,4 @@ fastlane/readme.md
 
 # output dir
 apks/
+gradle.properties
