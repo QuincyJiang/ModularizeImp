@@ -1,7 +1,13 @@
 apply plugin: 'com.android.application'
 apply plugin: 'signing'
 def packer = rootProject.ext.android
+def keystorePropertiesFile = rootProject.file("keystore.properties")
 
+// Initialize a new Properties() object called keystoreProperties.
+def keystoreProperties = new Properties()
+
+// Load your keystore.properties file into the keystoreProperties object.
+keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
 android {
     compileSdkVersion 27
     buildToolsVersion "27.0.3"
@@ -16,10 +22,10 @@ android {
     }
     signingConfigs {
         releaseConfig {
-            storeFile file("../kuaila")
-            storePassword project.hasProperty("KEYSTORE_PASS") ? KEYSTORE_PASS : System.getenv("KEYSTORE_PASS")
-            keyAlias project.hasProperty("ALIAS_NAME") ? ALIAS_NAME : System.getenv("ALIAS_NAME")
-            keyPassword project.hasProperty("ALIAS_PASS") ? ALIAS_PASS : System.getenv("ALIAS_PASS")
+            storeFile file("../kuaila2")
+            storePassword keystoreProperties['KEYSTORE_PASS']!=null ? keystoreProperties['KEYSTORE_PASS'] : System.getenv("KEYSTORE_PASS")
+            keyAlias keystoreProperties['ALIAS_NAME']!=null ? keystoreProperties['ALIAS_NAME'] : System.getenv("ALIAS_NAME")
+            keyPassword keystoreProperties['ALIAS_PASS']!=null ? keystoreProperties['ALIAS_PASS'] : System.getenv("ALIAS_PASS")
     }
     }
     buildTypes {
@@ -46,7 +52,7 @@ android {
         variant.outputs.all {output ->
             def outputFile = output.outputFile
             if(outputFile !=null && outputFile.name.endsWith('.apk')){
-                def fileName = "ipdmthj-${variant.productFlavors[0].name}-${variant.buildType.getName()}-${packer.versionName}-${packer.buildTime}.apk"
+                def fileName = "kuaila-${variant.productFlavors[0].name}-${variant.buildType.getName()}-${packer.versionName}-${packer.buildTime}.apk"
                 outputFileName = fileName
                 variant.packageApplication.outputDirectory = new File(project.rootDir.absolutePath+"/apks")
             }
