@@ -1,25 +1,27 @@
+sudo: required
 language: android
+before_cache:
+  - rm -f  $HOME/.gradle/caches/*
 before_install:
   - yes | sdkmanager "platforms;android-27"
   - yes | sdkmanager "build-tools;27.0.3"
-components:
-      - echo yes | sdkmanager "build-tools;27.0.3"
-      - echo yes | sdkmanager "platforms;android-27"
-      - tools
-      - tools # Running this twice get's the latest build tools
-      - platform-tools
-      - echo yes | sdkmanager "platforms;android-27"
-      - android-27
-      - build-tools-27.0.3
-      - echo yes | sdkmanager "build-tools;27.0.3"
-      - extra
-before_cache:
-  - rm -f  $HOME/.gradle/caches/*
 cache:
   directories:
     - $HOME/.gradle/caches/
     - $HOME/.gradle/wrapper/
     - $HOME/.android/build-cache
+android:
+  components:
+        - echo yes | sdkmanager "build-tools;27.0.3"
+        - echo yes | sdkmanager "platforms;android-27"
+        - tools
+        - tools # Running this twice get's the latest build tools
+        - platform-tools
+        - echo yes | sdkmanager "platforms;android-27"
+        - android-27
+        - build-tools-27.0.3
+        - echo yes | sdkmanager "build-tools;27.0.3"
+        - extra
 script:
     - "chmod +x ./gradlew"
     - "./gradlew assembleRelease"
