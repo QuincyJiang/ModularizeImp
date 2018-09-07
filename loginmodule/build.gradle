@@ -1,4 +1,9 @@
-apply plugin: 'com.android.application'
+boolean isModuleMode = project.hasProperty("isModule") ? isModule.toBoolean() : false
+if (isModuleMode) {
+    apply plugin: 'com.android.application'
+} else {
+    apply plugin: 'com.android.library'
+}
 
 android {
     compileSdkVersion 27
@@ -6,7 +11,6 @@ android {
 
 
     defaultConfig {
-        applicationId "com.dida.loginmodule"
         minSdkVersion 14
         targetSdkVersion 27
         versionCode 1
@@ -16,13 +20,36 @@ android {
 
     }
 
+    signingConfigs {
+        releaseConfig {
+            storeFile file("../kuaila2")
+            storePassword project.hasProperty("KEYSTORE_PASS") ? KEYSTORE_PASS : System.getenv("KEYSTORE_PASS")
+            keyAlias project.hasProperty("ALIAS_NAME") ? ALIAS_NAME : System.getenv("ALIAS_NAME")
+            keyPassword project.hasProperty("ALIAS_PASS") ? ALIAS_PASS : System.getenv("ALIAS_PASS")
+        }
+    }
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.releaseConfig
         }
     }
-
+    sourceSets {
+        main {
+            if (isModuleMode) {
+                //组件化编译时为app，在对应的AndroidManifest文件中需要写android.intent.action.MAIN入口Activity
+                manifest.srcFile 'src/main/module/AndroidManifest.xml'
+            } else {
+                manifest.srcFile 'src/main/AndroidManifest.xml'
+                //集成开发模式下排除debug文件夹中的所有Java文件
+                java {
+                    //debug文件夹中放的是Application类，非组件化时不用有此类
+                    exclude 'debug/**'
+                }
+            }
+        }
+    }
 }
 
 dependencies {

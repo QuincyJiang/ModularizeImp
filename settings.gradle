@@ -1,1 +1,1 @@
-include ':app', ':loginmodule', ':basiclib', ':commonservicelib', ':loginmodule', ':sharemodule'
+include ':app', ':loginmodule', ':basiclib', ':commonservicelib', ':loginmodule', ':sharemodule', ':userspage', ':funnystory'
