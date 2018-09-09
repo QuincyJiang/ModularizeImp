@@ -1,0 +1,61 @@
+/*
+ * Created by QuincyJiang on 18-9-9 下午6:12
+ * Copyright © 2018. All rights reserved.
+ *
+ * Last modified 18-9-7 下午10:10
+ */
+
+package com.dida.commonservicelib.base;
+
+import android.os.Bundle;
+import android.support.annotation.StringRes;
+import android.support.v7.app.ActionBar;
+
+import com.dida.commonservicelib.R;
+
+
+/**
+ * BaseActionBarActivity继承于BaseActivity，封装了actionBar的逻辑；
+ * 继承于ActionBarBaseActivity的Activity都将默认带有ActionBar，并且只能使用AppTheme主题；
+ * 只有那些ActionBar只带有Title和返回按钮的Activity方可继承
+ * @name BaseActionBarActivity
+ */
+public abstract class BaseActionBarActivity extends BaseActivity {
+
+    /*默认的ActionBar*/
+    protected ActionBar mActionBar;
+
+    /**
+     * 设置默认标题id
+     *
+     * @return 标题id
+     */
+    @StringRes
+    protected abstract int setTitleId();
+
+
+    /**
+     * 更新标题
+     *
+     * @param title String标题
+     */
+    protected void setTitle(String title) {
+        if (mActionBar != null) {
+            mActionBar.setTitle(title);
+        }
+    }
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        //标题栏设置
+        mActionBar = getSupportActionBar();
+        if (mActionBar != null) {
+            mActionBar.setHomeAsUpIndicator(R.drawable.ic_back);
+            mActionBar.setDisplayHomeAsUpEnabled(true);
+            mActionBar.setHomeButtonEnabled(true);
+            mActionBar.setTitle(setTitleId());
+        }
+    }
+
+}

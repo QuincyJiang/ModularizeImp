@@ -45,10 +45,7 @@ dependencies {
     api deps.room.runtime
     annotationProcessor deps.room.compiler
 
-    //fresco
-    api 'com.facebook.fresco:fresco:1.5.0'
-    api "com.facebook.fresco:imagepipeline-okhttp3:1.5.0"
-
+    api deps.glide
     // butterknife
     api deps.butterknife.runtime
     annotationProcessor deps.butterknife.compiler
@@ -67,5 +64,5 @@ dependencies {
     //router
     api deps.arouter.runtime
     //logutils
-    api deps.logutils
+    api deps.timber
 }
