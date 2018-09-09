@@ -17,7 +17,11 @@ android {
         versionName "1.0"
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [moduleName: project.getName()]
+            }
+        }
     }
 
     signingConfigs {
@@ -27,6 +31,13 @@ android {
             keyAlias project.hasProperty("ALIAS_NAME") ? ALIAS_NAME : System.getenv("ALIAS_NAME")
             keyPassword project.hasProperty("ALIAS_PASS") ? ALIAS_PASS : System.getenv("ALIAS_PASS")
         }
+    }
+
+    dataBinding {
+        enabled = true
+    }
+    lintOptions {
+        abortOnError false
     }
     buildTypes {
         release {
