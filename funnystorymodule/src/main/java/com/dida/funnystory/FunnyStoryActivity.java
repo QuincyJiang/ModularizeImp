@@ -25,7 +25,7 @@ public class FunnyStoryActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.mod_activity_funny);
         Button bt = findViewById(R.id.button);
         Button bt2 = findViewById(R.id.button2);
         bt.setOnClickListener(new View.OnClickListener() {

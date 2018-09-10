@@ -13,6 +13,11 @@ android {
         versionName packer.versionName
         flavorDimensions "versionCode"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [AROUTER_MODULE_NAME: project.getName()]
+            }
+        }
     }
     signingConfigs {
         releaseConfig {
@@ -75,5 +80,7 @@ dependencies {
         implementation project(':loginmodule')
         implementation project(':sharemodule')
         implementation project(':userspagemodule')
+        //router
+        annotationProcessor 'com.alibaba:arouter-compiler:1.2.1'
     }
 }
