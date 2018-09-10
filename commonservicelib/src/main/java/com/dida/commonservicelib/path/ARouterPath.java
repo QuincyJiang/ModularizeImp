@@ -8,6 +8,9 @@
 package com.dida.commonservicelib.path;
 
 public class ARouterPath {
+    /**
+     * 页面路由表
+     * */
     /**段子列表*/
     public static final String FUNNY_STORY_ACTIVITY = "/funny/activity/list";
     /**主页*/
@@ -20,4 +23,9 @@ public class ARouterPath {
     public static final String SHARE_ACTIVITY = "/share/activity/main";
     /**用户中心页面*/
     public static final String USER_CENTER_ACTIVITY = "/user/activity/main";
+
+    /**
+     * 服务路由表
+     * */
+    public static final String LOGIN_STATUS_SERVICE = "/login/service/status";
 }

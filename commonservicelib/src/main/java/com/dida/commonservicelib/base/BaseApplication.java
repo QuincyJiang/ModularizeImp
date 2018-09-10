@@ -8,10 +8,12 @@ package com.dida.commonservicelib.base;
 
 import android.app.Application;
 
+import com.alibaba.android.arouter.launcher.ARouter;
 import com.dida.commonservicelib.utils.AppUtils;
 import com.dida.commonservicelib.utils.ClassUtils;
 
 import java.util.List;
+
 
 /**
  * BaseApplication 基类
@@ -33,6 +35,7 @@ public class BaseApplication extends Application {
         AppUtils.init(this);
         mAppLikeList = ClassUtils.getObjectsWithInterface(this, ApplicationLike.class, ROOT_PACKAGE);
         for (ApplicationLike delegate : mAppLikeList) delegate.onCreate();
+        initARouter();
     }
 
     @Override
@@ -51,5 +54,12 @@ public class BaseApplication extends Application {
     public void onTrimMemory(int level) {
         super.onTrimMemory(level);
         for (ApplicationLike delegate : mAppLikeList) delegate.onTrimMemory(level);
+    }
+    private void initARouter(){
+            if (AppUtils.isAppDebug()) {
+                ARouter.openDebug();
+                ARouter.openLog();
+            }
+            ARouter.init(this);
     }
 }

@@ -20,6 +20,10 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
+        debug {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
     }
 
 }
@@ -37,6 +41,7 @@ dependencies {
     api deps.support.design
     api deps.support.cardview
     api deps.support.recyclerview
+    api deps.support.constraint
 
     // Architecture components
     api deps.lifecycle.runtime

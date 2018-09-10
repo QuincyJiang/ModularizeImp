@@ -1,6 +1,7 @@
 package debug;
 
-import android.app.Application;
+import com.dida.commonservicelib.base.BaseApplication;
 
-public class LoginApplication extends Application {
+public class LoginApplication extends BaseApplication {
+
 }

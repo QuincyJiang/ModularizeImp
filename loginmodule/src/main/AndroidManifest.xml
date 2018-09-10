@@ -2,6 +2,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.dida.loginmodule">
     <application>
-        <activity android:name=".MainActivity"/>
+        <activity android:name=".LoginActivity"/>
     </application>
 </manifest>

@@ -1,6 +1,6 @@
 package debug;
 
-import android.app.Application;
+import com.dida.commonservicelib.base.BaseApplication;
 
-public class FunnyStoryApplication extends Application {
+public class FunnyStoryApplication extends BaseApplication {
 }

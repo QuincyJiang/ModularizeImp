@@ -1,6 +1,7 @@
 package debug;
 
-import android.app.Application;
+import com.dida.commonservicelib.base.BaseApplication;
 
-public class HomePageApplication extends Application {
+public class HomePageApplication extends BaseApplication {
+
 }

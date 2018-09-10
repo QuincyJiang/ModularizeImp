@@ -3,6 +3,6 @@
     package="com.dida.userspage">
 
     <application>
-        <activity android:name=".MainActivity"/>
+        <activity android:name=".UserCenterActivity"/>
     </application>
 </manifest>

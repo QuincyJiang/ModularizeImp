@@ -18,10 +18,11 @@ import com.dida.commonservicelib.R;
 import com.dida.commonservicelib.utils.AppUtils;
 import com.dida.commonservicelib.utils.ViewManager;
 
-public abstract class BaseActivity extends AppCompatActivity {
+public class BaseActivity extends AppCompatActivity {
+    public String TAG = getClass().getSimpleName();
     /**
-     * 封装的findViewByID方法
-     */
+     * findViewById()
+    * */
     @SuppressWarnings("unchecked")
     protected <T extends View> T $(@IdRes int id) {
         return (T) super.findViewById(id);

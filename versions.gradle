@@ -10,6 +10,7 @@
     ext.deps = [:]
     def versions = [:]
     versions.arch = "1.1.0"
+    versions.constraint = "2.0.0-alpha2"
     versions.room = "1.0.0"
     versions.support = "27.1.1"
     versions.dagger = "2.11"
@@ -47,6 +48,7 @@
     support.design = "com.android.support:design:$versions.support"
     support.v4 = "com.android.support:support-v4:$versions.support"
     support.core_utils = "com.android.support:support-core-utils:$versions.support"
+    support.constraint = "com.android.support.constraint:constraint-layout:$versions.constraint"
     deps.support = support
 
     def room = [:]
