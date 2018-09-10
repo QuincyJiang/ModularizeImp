@@ -69,7 +69,7 @@ dependencies {
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
     implementation project(':commonservicelib')
     implementation project(':dependencylib')
-    if(!isModule) {
+    if(!isModuleMode) {
         implementation project(':funnystorymodule')
         implementation project(':homepagemodule')
         implementation project(':loginmodule')
