@@ -20,11 +20,12 @@ import android.support.v7.widget.Toolbar;
 import android.util.DisplayMetrics;
 import android.view.View;
 
+import com.alibaba.android.arouter.launcher.ARouter;
 import com.dida.commonservicelib.R;
 import com.dida.commonservicelib.utils.AppUtils;
 import com.dida.commonservicelib.utils.ViewManager;
 
-public class BaseActivity extends AppCompatActivity {
+public abstract class BaseActivity extends AppCompatActivity {
     public String TAG = getClass().getSimpleName();
     private static float sNoncompatDensity;
     private static float sNoncompatScaledDensity;
@@ -41,7 +42,11 @@ public class BaseActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setCustomDensity(this,getApplication());
+        setContentView(getContentResId());
         ViewManager.getInstance().addActivity(this);
+        ARouter.getInstance().inject(this);
+        initView();
+        initData();
     }
 
 
@@ -202,5 +207,8 @@ public class BaseActivity extends AppCompatActivity {
         super.finish();
         this.overridePendingTransition(R.anim.activity_down_in, R.anim.activity_down_out);
     }
+    protected abstract int getContentResId();
+    protected abstract void initView();
+    protected abstract void initData();
 
 }

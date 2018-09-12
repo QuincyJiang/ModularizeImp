@@ -1,6 +1,5 @@
 package com.dida.kuaila;
 
-import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -14,9 +13,12 @@ import com.dida.commonservicelib.path.ARouterPath;
 public class MainActivity extends BaseActivity {
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+    protected int getContentResId() {
+        return R.layout.activity_main;
+    }
+
+    @Override
+    protected void initView() {
         Button bt = $(R.id.button);
         bt.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -50,5 +52,8 @@ public class MainActivity extends BaseActivity {
         });
     }
 
+    @Override
+    protected void initData() {
 
+    }
 }

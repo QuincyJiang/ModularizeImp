@@ -1,6 +1,5 @@
 package com.dida.funnystory;
 
-import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
@@ -22,10 +21,14 @@ public class FunnyStoryActivity extends BaseActivity {
     @Autowired(name = LOGIN_STATUS_SERVICE)
     ILoginService service;
 
+
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.mod_activity_funny);
+    protected int getContentResId() {
+        return R.layout.mod_activity_funny;
+    }
+
+    @Override
+    protected void initView() {
         Button bt = findViewById(R.id.button);
         Button bt2 = findViewById(R.id.button2);
         bt.setOnClickListener(new View.OnClickListener() {
@@ -46,4 +49,8 @@ public class FunnyStoryActivity extends BaseActivity {
         });
     }
 
+    @Override
+    protected void initData() {
+
+    }
 }
