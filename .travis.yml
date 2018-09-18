@@ -23,7 +23,7 @@ before_install:
 - yes | sdkmanager "build-tools;27.0.3"
 script:
 - chmod +x ./gradlew
-- "./gradlew assembleRelease"
+- "./gradlew assembleKuan"
 deploy:
   provider: releases
   api_key:
