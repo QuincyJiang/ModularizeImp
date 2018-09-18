@@ -32,13 +32,20 @@ app壳，只包含一个闪屏页，可以通过配置`gradle`依赖的方式，
 `Application`生命周期的接口，在应用的`Application`初始化的时候，会通过反射的方式，搜索所有该接口的实现类，并回调对应的方法。
 其他模块在`library`形态下，如果想在`Application`的生命周期回调里做某些操作，可以实现该接口。写法可以参考`CoreModelModule`
 
+### base/BaseActivity
+`Activity`的基类，在`onCreate()`方法中，使用了今日头条的屏幕适配方案，通过修改设备`DisplayMetrics`
+来达到同样的dp值，在不同设备上转化为px后，与设备物理宽度的比例保持不变。
+具体思路可[参考](https://mp.weixin.qq.com/s/d9QCoBP6kV9VSWvVldVVwA)
+
+**注意：出设计稿的时候，以设备宽度360dp，模拟器宽高1920x1080px，屏幕密度为3来设计**
+
 ### path/ARouterPath.java
 `ARouter`的路由表，需要为其他模块提供跳转服务的，都需要在该类中声明自己的路由表。
 `ARouter`的使用方法见[ARouter中文说明文档](https://github.com/alibaba/ARouter/blob/master/README_CN.md)
 
 ### service/*
 其他模块可以向外提供的服务。
-**该目录下的所有java文件均为接口。**其他模块如果有新的功能提供，在该目录下声明自己可以提供的服务以`IXXService`命名，
+**该目录下的所有java文件均为接口**其他模块如果有新的功能提供，在该目录下声明自己可以提供的服务以`IXXService`命名，
 同时在自己对应的模块下，实现该接口。
 写法可以参照 `LoginModule`
 
