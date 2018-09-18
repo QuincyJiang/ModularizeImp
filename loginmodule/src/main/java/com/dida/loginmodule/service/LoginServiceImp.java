@@ -25,4 +25,9 @@ public class LoginServiceImp implements ILoginService {
     public boolean getLoginStatus() {
         return false;
     }
+
+    @Override
+    public boolean isTokenExpire() {
+        return false;
+    }
 }
