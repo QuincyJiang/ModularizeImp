@@ -5,8 +5,19 @@ package com.dida.loginmodule.config;
  * Description:
  */
 public class Config {
-    public static final String APPLICATION_ID = "406cc5e137f370c447e7423a6f44fa8d";
-    public static final String REST_API_KEY = "8610243c840806d57f76791d481490b4";
-    public static final String SECRET_KEY = "dee625307ae7baff";
-    public static final String MASTER_KEY = "65bab0173dc3a3f390c03fe70dbf019b";
+    /**
+     * Bmob appId
+     */
+    public static final String BMOB_APP_ID = "406cc5e137f370c447e7423a6f44fa8d";
+    public static final String WECHAT_APP_ID = "406cc5e137f370c447e7423a6f44fa8d";
+    public static final String QQ_APP_ID = "406cc5e137f370c447e7423a6f44fa8d";
+    /**
+     * 微信平台的AppSecret
+     */
+    public static final String WEIXIN_APP_SECRET ="03eec97e8be49cd84f67bbe12469f19e";
+
+    /**
+     *  微信平台的grant type，固定值：authorization_code
+     */
+    public static final String WEIXIN_GRANT_TYPE ="authorization_code";
 }

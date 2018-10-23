@@ -5,7 +5,7 @@
  * Last modified 18-9-18 上午11:34
  */
 
-package com.dida.coremodelmodule.model;
+package com.dida.loginmodule.model;
 
 import cn.bmob.v3.BmobObject;
 

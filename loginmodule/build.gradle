@@ -80,4 +80,14 @@ dependencies {
     implementation project(':dependencylib')
     //router
     annotationProcessor 'com.alibaba:arouter-compiler:1.2.1'
+    //以下SDK开发者请根据需要自行选择
+    //bmob-sdk：Bmob的android sdk包，包含了Bmob的数据存储、文件等服务，以下是最新的bmob-sdk:
+    //3.5.5：请务必查看下面注释[1]
+    implementation 'cn.bmob.android:bmob-sdk:3.6.3'
+
+    //bmob-push：Bmob的推送包
+    implementation 'cn.bmob.android:bmob-push:0.8'
+
+    //如果你想应用能够兼容Android6.0，请添加此依赖(org.apache.http.legacy.jar)
+    implementation 'cn.bmob.android:http-legacy:1.0'
 }

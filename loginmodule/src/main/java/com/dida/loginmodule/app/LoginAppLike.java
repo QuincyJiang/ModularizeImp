@@ -5,18 +5,18 @@
  * Last modified 18-9-18 上午11:05
  */
 
-package com.dida.coremodelmodule.app;
+package com.dida.loginmodule.app;
 
 import com.dida.commonservicelib.base.ApplicationLike;
-import com.dida.commonservicelib.base.Constants;
 import com.dida.commonservicelib.utils.AppUtils;
+import com.dida.loginmodule.config.Config;
 
 import cn.bmob.v3.Bmob;
 
-public class CoreModelAppLike implements ApplicationLike {
+public class LoginAppLike implements ApplicationLike {
     @Override
     public void onCreate() {
-        Bmob.initialize(AppUtils.getContext(), Constants.APPLICATION_ID);
+        Bmob.initialize(AppUtils.getContext(), Config.BMOB_APP_ID);
     }
 
     @Override
