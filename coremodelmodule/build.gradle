@@ -12,7 +12,7 @@ if (isModuleMode) {
 }
 
 android {
-    compileSdkVersion 27
+    compileSdkVersion deps.sdk.compile
     resourcePrefix 'core_model'
 
     useLibrary 'org.apache.http.legacy'
@@ -20,8 +20,8 @@ android {
         exclude 'META-INF/rxjava.properties'
     }
     defaultConfig {
-        minSdkVersion 14
-        targetSdkVersion 27
+        minSdkVersion deps.sdk.min
+        targetSdkVersion deps.sdk.target
         versionCode 1
         versionName "1.0"
 
@@ -34,6 +34,12 @@ android {
     }
     signingConfigs {
         releaseConfig {
+            storeFile file("../kuaila2")
+            storePassword project.hasProperty("KEYSTORE_PASS") ? KEYSTORE_PASS : System.getenv("KEYSTORE_PASS")
+            keyAlias project.hasProperty("ALIAS_NAME") ? ALIAS_NAME : System.getenv("ALIAS_NAME")
+            keyPassword project.hasProperty("ALIAS_PASS") ? ALIAS_PASS : System.getenv("ALIAS_PASS")
+        }
+        debug{
             storeFile file("../kuaila2")
             storePassword project.hasProperty("KEYSTORE_PASS") ? KEYSTORE_PASS : System.getenv("KEYSTORE_PASS")
             keyAlias project.hasProperty("ALIAS_NAME") ? ALIAS_NAME : System.getenv("ALIAS_NAME")
@@ -87,14 +93,4 @@ dependencies {
         all*.exclude group: 'io.reactivex.rxjava2:rxjava'
         all*.exclude group: 'io.reactivex.rxjava2:rxandroid'
     }
-    implementation 'cn.bmob.android:bmob-sdk:3.6.3'
-
-    //bmob-push：Bmob的推送包
-    implementation 'cn.bmob.android:bmob-push:0.8'
-
-    //bmob-im：Bmob的即时通讯包，注意每个版本的im依赖特定版本的bmob-sdk，具体的依赖关系可查看下面注释[2]
-    implementation 'cn.bmob.android:bmob-im:2.1.0@aar'
-
-    //如果你想应用能够兼容Android6.0，请添加此依赖(org.apache.http.legacy.jar)
-    implementation 'cn.bmob.android:http-legacy:1.0'
 }

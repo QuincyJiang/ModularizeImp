@@ -9,10 +9,12 @@
     **/
     ext.deps = [:]
     def versions = [:]
+    versions.sdk = 28
+    versions.minSdk = 14
     versions.arch = "1.1.0"
     versions.constraint = "2.0.0-alpha2"
     versions.room = "1.0.0"
-    versions.support = "27.1.1"
+    versions.support = "28.0.0"
     versions.dagger = "2.11"
     versions.junit = "4.12"
     versions.espresso = "3.0.1"
@@ -50,6 +52,13 @@
     support.core_utils = "com.android.support:support-core-utils:$versions.support"
     support.constraint = "com.android.support.constraint:constraint-layout:$versions.constraint"
     deps.support = support
+
+    def sdk = [:]
+    sdk.min = versions.minSdk
+    sdk.compile = versions.sdk
+    sdk.target = versions.sdk
+    sdk.buildTools = "28.0.3"
+    deps.sdk = sdk
 
     def room = [:]
     room.runtime = "android.arch.persistence.room:runtime:$versions.room"
