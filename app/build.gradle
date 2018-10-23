@@ -15,7 +15,7 @@ android {
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         javaCompileOptions {
             annotationProcessorOptions {
-                arguments = [ AROUTER_MODULE_NAME : project.getName() ]
+               arguments = [AROUTER_MODULE_NAME: project.getName()]
             }
         }
     }
@@ -80,6 +80,8 @@ dependencies {
         implementation project(':loginmodule')
         implementation project(':sharemodule')
         implementation project(':userspagemodule')
+        //router
+        annotationProcessor 'com.alibaba:arouter-compiler:1.2.1'
     }
     annotationProcessor 'com.alibaba:arouter-compiler:1.2.1'
 }

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Created by QuincyJiang on 18-9-18 上午10:56
+  ~ Copyright © 2018. All rights reserved.
+  ~
+  ~ Last modified 18-9-18 上午10:56
+  -->
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+    <Button
+        android:tag="button1"
+        android:text="add data"
+        android:layout_width="360dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/button"/>
+    <Button
+        android:tag="button2"
+        android:text="get data"
+        android:layout_width="360dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/button2"/>
+    <Button
+        android:tag="button3"
+        android:text="modify data"
+        android:layout_width="360dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/button3"/>
+    <Button
+        android:tag="button4"
+        android:text="delete data"
+        android:layout_width="360dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/button4"/>
+
+</LinearLayout>

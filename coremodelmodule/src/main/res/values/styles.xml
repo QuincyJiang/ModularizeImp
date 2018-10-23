@@ -1,0 +1,18 @@
+<!--
+  ~ Created by QuincyJiang on 18-9-18 上午10:56
+  ~ Copyright © 2018. All rights reserved.
+  ~
+  ~ Last modified 18-9-18 上午10:56
+  -->
+
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+</resources>

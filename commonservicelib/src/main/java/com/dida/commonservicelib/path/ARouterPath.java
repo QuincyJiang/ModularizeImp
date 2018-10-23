@@ -28,4 +28,5 @@ public class ARouterPath {
      * 服务路由表
      * */
     public static final String LOGIN_STATUS_SERVICE = "/login/service/status";
+    public static final String CORE_MODEL_BASE_SERVICE = "/core/service/base";
 }

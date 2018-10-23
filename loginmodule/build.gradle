@@ -72,4 +72,6 @@ dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation project(':commonservicelib')
     implementation project(':dependencylib')
+    //router
+    annotationProcessor 'com.alibaba:arouter-compiler:1.2.1'
 }

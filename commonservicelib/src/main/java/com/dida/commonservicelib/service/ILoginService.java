@@ -17,4 +17,5 @@ public interface ILoginService extends IProvider {
      * 获取登录状态
      * */
     boolean getLoginStatus();
+    boolean isTokenExpire();
 }
