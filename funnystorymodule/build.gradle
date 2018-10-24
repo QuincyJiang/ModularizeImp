@@ -6,13 +6,13 @@ if (isModuleMode) {
 }
 
 android {
-    compileSdkVersion 27
+    compileSdkVersion deps.sdk.compile
 
 
 
     defaultConfig {
-        minSdkVersion 14
-        targetSdkVersion 27
+        minSdkVersion deps.sdk.min
+        targetSdkVersion deps.sdk.target
         versionCode 1
         versionName "1.0"
 
@@ -25,6 +25,12 @@ android {
 
     signingConfigs {
         releaseConfig {
+            storeFile file("../kuaila2")
+            storePassword project.hasProperty("KEYSTORE_PASS") ? KEYSTORE_PASS : System.getenv("KEYSTORE_PASS")
+            keyAlias project.hasProperty("ALIAS_NAME") ? ALIAS_NAME : System.getenv("ALIAS_NAME")
+            keyPassword project.hasProperty("ALIAS_PASS") ? ALIAS_PASS : System.getenv("ALIAS_PASS")
+        }
+        debug{
             storeFile file("../kuaila2")
             storePassword project.hasProperty("KEYSTORE_PASS") ? KEYSTORE_PASS : System.getenv("KEYSTORE_PASS")
             keyAlias project.hasProperty("ALIAS_NAME") ? ALIAS_NAME : System.getenv("ALIAS_NAME")

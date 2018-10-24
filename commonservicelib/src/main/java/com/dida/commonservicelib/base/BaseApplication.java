@@ -20,7 +20,7 @@ import java.util.List;
  * 遍历所有实现的ApplicationLike接口实现对模块application生命周期的通知
  * */
 public class BaseApplication extends Application {
-    public static final String ROOT_PACKAGE = "com.guiying.module";
+    public static final String ROOT_PACKAGE = "com.dida.commonservicelib";
     private static BaseApplication APP_INSTANCE;
     private List<ApplicationLike> mAppLikeList;
 

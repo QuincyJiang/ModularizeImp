@@ -12,7 +12,7 @@ import android.widget.Button;
 
 import com.dida.commonservicelib.base.BaseActivity;
 import com.dida.commonservicelib.utils.ToastUtil;
-import com.dida.coremodelmodule.model.Person;
+import com.dida.loginmodule.model.Person;
 
 import cn.bmob.v3.BmobQuery;
 import cn.bmob.v3.exception.BmobException;
