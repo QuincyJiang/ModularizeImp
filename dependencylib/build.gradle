@@ -25,9 +25,6 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-
-    implementation 'com.android.support:appcompat-v7:27.1.1'
-
     // Support libraries
     api deps.support.app_compat
     api deps.support.v4

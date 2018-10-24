@@ -7,9 +7,10 @@ if (isModuleMode) {
 
 android {
     compileSdkVersion deps.sdk.compile
-
-
-
+    useLibrary 'org.apache.http.legacy'
+    packagingOptions {
+        exclude 'META-INF/rxjava.properties'
+    }
     defaultConfig {
         minSdkVersion deps.sdk.min
         targetSdkVersion deps.sdk.target
@@ -82,11 +83,18 @@ dependencies {
     //以下SDK开发者请根据需要自行选择
     //bmob-sdk：Bmob的android sdk包，包含了Bmob的数据存储、文件等服务，以下是最新的bmob-sdk:
     //3.5.5：请务必查看下面注释[1]
-    implementation 'cn.bmob.android:bmob-sdk:3.6.3'
+    implementation ('cn.bmob.android:bmob-sdk:3.6.3')
 
     //bmob-push：Bmob的推送包
     implementation 'cn.bmob.android:bmob-push:0.8'
 
     //如果你想应用能够兼容Android6.0，请添加此依赖(org.apache.http.legacy.jar)
     implementation 'cn.bmob.android:http-legacy:1.0'
+    configurations {
+        all*.exclude group: 'com.google.code.gson'
+        all*.exclude group: 'com.squareup.okhttp3'
+        all*.exclude group: 'com.squareup.retrofit2'
+        all*.exclude group: 'io.reactivex.rxjava2:rxjava'
+        all*.exclude group: 'io.reactivex.rxjava2:rxandroid'
+    }
 }
