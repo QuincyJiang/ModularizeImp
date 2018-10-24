@@ -14,7 +14,6 @@ android {
         versionCode 1
         versionName "1.0"
 
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         javaCompileOptions {
             annotationProcessorOptions {
                 arguments = [AROUTER_MODULE_NAME: project.getName()]
@@ -74,6 +73,7 @@ dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation project(':commonservicelib')
     implementation project(':dependencylib')
+
     //router
     annotationProcessor 'com.alibaba:arouter-compiler:1.2.1'
 }
