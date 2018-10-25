@@ -5,6 +5,9 @@ def packer = rootProject.ext.android
 android {
     compileSdkVersion deps.sdk.compile
     buildToolsVersion deps.sdk.buildTools
+    packagingOptions {
+        exclude 'META-INF/rxjava.properties'
+    }
     defaultConfig {
         applicationId "com.dida.kuaila"
         minSdkVersion deps.sdk.min
@@ -83,6 +86,13 @@ dependencies {
         implementation project(':userspagemodule')
         //router
         annotationProcessor 'com.alibaba:arouter-compiler:1.2.1'
+        configurations {
+            all*.exclude group: 'com.google.code.gson'
+            all*.exclude group: 'com.squareup.okhttp3'
+            all*.exclude group: 'com.squareup.retrofit2'
+            all*.exclude group: 'io.reactivex.rxjava2:rxjava'
+            all*.exclude group: 'io.reactivex.rxjava2:rxandroid'
+        }
     }
     annotationProcessor 'com.alibaba:arouter-compiler:1.2.1'
 }
