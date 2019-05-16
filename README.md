@@ -1,3 +1,4 @@
+一个组件化的Demo实践
 # 项目结构说明：
 采用项目组件化+组件内MVVM结构的开发方式，使用`travis`做持续集成服务。
 通过配置 `/gradle.properties`的
@@ -93,53 +94,3 @@ public class LoginServiceImp implements ILoginService {
 ## coreModelModule
 
 核心`model`模块，所有与数据交互相关的操作，都由该模块完成，包括但不限于获取网络请求，持久化本地，读取sp，读写数据库之类的。
-目前该模块可提供的功能包括：
-```java
-public interface IModelService extends IProvider {
-    /**
-     * 登录
-     * */
-    void login();
-    /**
-     * 登出
-     * */
-    void signOut();
-    /**
-     * 获取卫生间信息
-     * */
-    void getBathroomInfo();
-    /**
-     * 获取房屋信息
-     * */
-    void getHouseInfo();
-    /**
-     * 获取房屋租客信息
-     * */
-    void getHouseTenentInfo();
-    /**
-     * 每日签到
-     * */
-    void dailySignIn();
-    /**
-     * 获取用户信息
-     * */
-    void getUserInfo();
-    /**
-     * 获取卫生间使用状态
-     * */
-    void getBathroomStatus();
-    /**
-     * 设置卫生间状态为使用中
-     * */
-    void startToUse();
-    /**
-     * 设置卫生间状态为结束使用
-     * */
-    void finishUse();
-    /**
-     * 获取消息
-     * */
-    void getMessage();
-}
-```
-
